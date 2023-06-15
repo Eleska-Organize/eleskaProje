@@ -10,20 +10,22 @@ import Footer from "../components/footer/Footer";
 import Menü from "../components/menü/Menü";
 import About from "../components/about/About";
 import Home from "../components/category/Home";
+import MultiStepForm from "../components/stepper/MultiStepForm";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <Header />
-      <Menü/>
-      <Home/>
-      <Steps/>
+      <Menü />
+      <Home />
+      <Steps />
       <Orbit radius={400} />
-      <Slider/>
-      <About/>
-      <Connect/>
-      <Footer/>
+      <Slider />
+      <About />
+      <Connect />
+      <Footer />
+      <MultiStepForm />
     </BrowserRouter>
   );
 };
