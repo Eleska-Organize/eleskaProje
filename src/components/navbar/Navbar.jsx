@@ -32,7 +32,7 @@ const Navbar = () => {
     { title: "Menü", url: "/menu" },
     { title: "İletişim", url: "/contact" },
   ];
-  const address=["Ev Adresi","İş Adresi", "İstanbul","Diğer"]
+  const address = ["Ev Adresi", "İş Adresi", "İstanbul", "Diğer"];
 
   const currentUser = true;
   return (
@@ -109,19 +109,17 @@ const Navbar = () => {
                     className="py-2 text-sm text-gray-700"
                     aria-labelledby="dropdownDefaultButton"
                   >
-                    
-                    {address.map((adres)=>(
-
                     <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 "
-                      >
-                        {adres}
-                      </a>
+                      {address.map((adres, index) => (
+                        <a
+                        key={index}
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 "
+                        >
+                          {adres}
+                        </a>
+                      ))}
                     </li>
-                    ))}
-                    
                   </ul>
                 </div>
               </div>
@@ -190,103 +188,93 @@ const Navbar = () => {
                         />
                       </button>
                     </div>
-                    
                   </>
                 )}
                 <div
-                      className=" z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow "
-                      id="dropdown-user"
+                  className=" z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow "
+                  id="dropdown-user"
+                >
+                  <div className="px-4 py-3" role="none">
+                    <p className="text-sm text-gray-900 " role="none">
+                      Neil Sims
+                    </p>
+                    <p
+                      className="text-sm font-medium text-gray-900 truncate "
+                      role="none"
                     >
-                      <div className="px-4 py-3" role="none">
-                        <p className="text-sm text-gray-900 " role="none">
-                          Neil Sims
-                        </p>
-                        <p
-                          className="text-sm font-medium text-gray-900 truncate "
-                          role="none"
-                        >
-                          neil.sims@flowbite.com
-                        </p>
-                      </div>
-                      <ul className="py-1" role="none">
-                        <li>
-                          <a
-                            href="#"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
-                            role="menuitem"
-                          >
-                            Dashboard
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
-                            role="menuitem"
-                          >
-                            Settings
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
-                            role="menuitem"
-                          >
-                            Earnings
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
-                            role="menuitem"
-                          >
-                            Sign out
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+                      neil.sims@flowbite.com
+                    </p>
+                  </div>
+                  <ul className="py-1" role="none">
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
+                        role="menuitem"
+                      >
+                        Dashboard
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
+                        role="menuitem"
+                      >
+                        Settings
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
+                        role="menuitem"
+                      >
+                        Earnings
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
+                        role="menuitem"
+                      >
+                        Sign out
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </nav>
-        <div className="h-[65px]"></div>
-      
+      <div className="h-[65px]"></div>
+
       <aside
         id="logo-sidebar"
-        className="bg-[#E12A32] lg:hidden fixed smx:top-12 sm:top-10
+        className="bg-[#E12A32] lg:hidden fixed top-3
          z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r border-gray-200  "
         aria-label="Sidebar"
       >
         <div className="  h-full px-3  overflow-y-auto bg-[#E12A32]">
           <ul className="space-y-2 font-medium ">
-            {sideBarMenü.map((event) => (
-              <li>
+            <li>
+              {sideBarMenü.map((event, index) => (
                 <Link
                   to={event.url}
+                  key={index}
                   hreventf="#"
                   className="flex items-center p-2 text-white  rounded-lg hover:bg-gray-100   hover:text-[#E12A32]"
                 >
-                  {/* <svg
-                    aria-hidden="true"
-                    className="w-6 h-6 text-white transition duration-75  group-hover:text-gray-900 "
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-                    <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-                  </svg> */}
                   {event.icon}
 
                   <span className="flex-1 ml-3 whitespace-nowrap">
                     {event.title}
                   </span>
                 </Link>
-              </li>
-            ))}
+              ))}
+            </li>
           </ul>
         </div>
       </aside>

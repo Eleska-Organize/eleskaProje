@@ -34,8 +34,8 @@ const CampaignFilter = () => {
         <div className="p-3 space-y-1 text-sm text-black">
           <div>
             <h5 className="text-center">KATEGORİ</h5>
-            {kategori.map((item) => (
-              <div className="flex py-3 rounded hover:bg-[#e12a3368] ">
+            {kategori.map((item,index) => (
+              <div className="flex py-3 rounded hover:bg-[#e12a3368] " key={index}>
                 <div className="flex items-center h-5 px-2">
                   <input
                     id="helper-radio-4"
