@@ -19,7 +19,9 @@ const Step3 = () => {
       <div className="font-bold px-8">
         <div className="flex gap-3 ">
           <div className="w-full mb-4">
-            <label htmlFor="firstName">Ad</label>
+            <label className="mb-2" htmlFor="firstName">
+              Ad
+            </label>
             <input
               className="border-2 rounded-md p-2"
               type="text"
@@ -28,7 +30,9 @@ const Step3 = () => {
             />
           </div>
           <div className="w-full mb-4">
-            <label htmlFor="lastname">Soyad</label>
+            <label className="mb-2" htmlFor="lastname">
+              Soyad
+            </label>
             <input
               className="border-2 rounded-md p-2"
               type="text"
@@ -38,7 +42,9 @@ const Step3 = () => {
           </div>
         </div>
         <div className="w-full mb-4">
-          <label htmlFor="email">Email</label>
+          <label className="mb-2" htmlFor="email">
+            Email
+          </label>
           <input
             className="border-2 rounded-md p-2 "
             type="email"
@@ -47,7 +53,9 @@ const Step3 = () => {
           />
         </div>
         <div className="w-full mb-4">
-          <label htmlFor="phone">Telefon</label>
+          <label className="mb-2" htmlFor="phone">
+            Telefon
+          </label>
           <input
             className="border-2 rounded-md p-2"
             type="tel"
@@ -56,7 +64,9 @@ const Step3 = () => {
           />
         </div>
         <div className="w-full mb-4">
-          <label htmlFor="street">Sokak</label>
+          <label className="mb-2" htmlFor="street">
+            Sokak
+          </label>
           <input
             className="border-2 rounded-md p-2"
             type="text"
@@ -65,9 +75,11 @@ const Step3 = () => {
           />
         </div>
         <div className="w-full mb-4">
-          <div className="flex gap-3">
+          <div className="flex gap-3 ">
             <div className="w-full">
-              <label htmlFor="city">Şehir</label>
+              <label className="mb-2" htmlFor="city">
+                Şehir
+              </label>
               <input
                 className="border-2 rounded-md p-2"
                 type="text"
@@ -76,7 +88,9 @@ const Step3 = () => {
               />
             </div>
             <div className="w-full">
-              <label htmlFor="zip">Zip</label>
+              <label className="mb-2" htmlFor="zip">
+                Zip
+              </label>
               <input
                 className="border-2 rounded-md p-2"
                 type="tel"
