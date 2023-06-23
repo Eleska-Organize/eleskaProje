@@ -16,7 +16,7 @@ const Card = ({slides}) => {
         <MdChevronLeft size={40} className="slider-icon left" onClick={sliderLeft} />
 
         
-        <div id="slider">
+        <div className="slider">
             {
             slides.map((slide, index)=>{
                 return(

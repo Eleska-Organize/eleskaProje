@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Navigation, Pagination, Autoplay } from "swiper";
 
-
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 const slides = [
   {
     image:
@@ -56,68 +59,89 @@ const slides = [
 ];
 
 const CampaignSlider = () => {
-  const sliderLeft = () => {
-    let slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 500;
-  };
-  const sliderRight = () => {
-    let slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 500;
-  };
-  // useEffect hook'unu kullanarak bir zamanlayıcı oluşturuyoruz
-  useEffect(() => {
-    // setInterval fonksiyonunu kullanarak 5 saniyede bir sliderRight işlevini çağırıyoruz
-    const interval = setInterval(() => {
-      sliderRight();
-    }, 1000);
-
-    // useEffect hook'unun geri dönüş fonksiyonu aracılığıyla zamanlayıcıyı temizliyoruz
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
   return (
-    <div className="flex justify-center ">
-      <div className="my-5  w-[80%] h-[400px] flex justify-center items-center shadow-sliderShadow">
-        <div className=" w-[100%]  relative flex items-center">
-          <MdChevronLeft
-            size={40}
-            className=" rounded-full absolute left-0 opacity-50 hover:opacity-100 hover:cursor-pointer hover:shadow-Cs hover:duration-300"
-            onClick={sliderLeft}
-          />
-
-          <div id="slider">
-            {slides.map((slide, index) => {
-              return (
-                <div
-                  className={`w-[250px] h-[250px] rounded-[10px] inline-block mx-[1rem]
-                  `}
-                  key={index}
-                  role="button"
-                >
-                  <div
-                    className="w-full h-[210px] bg-gray-600 rounded-t-[10px] bg-cover"
-                    style={{ backgroundImage: `url(${slide.image})` }}
-                  ></div>
-                  <div className="flex flex-col items-center">
-                    <p className="text-center my-2 font-medium">
-                      {slide.title}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+    <div className="w-[60%] mx-auto my-5 ">
+      <h1 className="text-center mb-5">Haftanın Enleri</h1>
+      <Swiper
+        effect="coverflow"
+        spaceBetween={50}
+        grabCursor={true}
+        centeredSlides={true}
+        loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        slidesPerView={3}
+        coverflowEffect={{
+          rotate: 10,
+          stretch: 0,
+          depth: 100,
+          modifier: 3,
+          slideShadows: true,
+        }}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+          clickable: true,
+        }}
+        pagination={{ el: ".swiper-pagination", clickable: true }}
+        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+        className="swiper_containe"
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide  key={index}>
+            <img src={slide.image} alt={slide.title} />
+          </SwiperSlide>
+        ))}
+        <div >
+          <div className="swiper-button-prev slider-arrow ">
+            <ion-icon name="arrow-back-outline"></ion-icon>
           </div>
-          <MdChevronRight
-            size={40}
-            className=" rounded-full absolute  right-0 opacity-50 hover:opacity-100 hover:cursor-pointer hover:shadow-Cs hover:duration-300"
-            onClick={sliderRight}
-          />
+          <div className="swiper-button-next slider-arrow">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </div>
+          <div className="swiper-pagination"></div>
         </div>
-      </div>
+      </Swiper>
     </div>
   );
 };
 
 export default CampaignSlider;
+
+// const sliderLeft = () => {
+//   var slider = document.querySelector(".slider");
+//   slider.scrollLeft = slider.scrollLeft - 300;
+// };
+// const sliderRight = () => {
+//   var slider = document.querySelector(".slider");
+//   slider.scrollLeft = slider.scrollLeft + 300;
+// };
+// // useEffect hook'unu kullanarak bir zamanlayıcı oluşturuyoruz
+// useEffect(() => {
+//   let isReversed = false;
+//   // setInterval fonksiyonunu kullanarak 5 saniyede bir sliderRight işlevini çağırıyoruz
+//   const interval = setInterval(() => {
+//     if (sliderRight && !isReversed) {
+//       sliderRight();
+//       if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+//         // Sağa doğru sona gelindiğinde geri yönde kaydırmak için durumu değiştir
+//         isReversed = true;
+//       }
+//     } else {
+//       sliderLeft();
+//       if (slider.scrollLeft <= 0) {
+//         // Sola doğru sona gelindiğinde tekrar ileri yönde kaydırmak için durumu değiştir
+//         isReversed = false;
+//       }
+//     }
+//   }, 5000);
+
+//   // useEffect hook'unun geri dönüş fonksiyonu aracılığıyla zamanlayıcıyı temizliyoruz
+//   return () => {
+//     clearInterval(interval);
+//   };
+// }, []);
+
+// style={{ backgroundImage: `url(${slide.image})` }}
